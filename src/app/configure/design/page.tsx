@@ -1,6 +1,7 @@
 import { db } from "@/db";
 import { notFound } from "next/navigation";
 import DesignConfigurator from "./DesignConfigurator";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 interface Props {
     searchParams: {
@@ -28,11 +29,13 @@ const Page = async ({ searchParams }: Props) => {
     const { imageUrl, width, height } = configuration;
 
     return (
-        <DesignConfigurator
-            imageUrl={imageUrl}
-            imageDimensions={{ width, height }}
-            configId={configuration.id}
-        />
+        <MaxWidthWrapper>
+            <DesignConfigurator
+                imageUrl={imageUrl}
+                imageDimensions={{ width, height }}
+                configId={configuration.id}
+            />
+        </MaxWidthWrapper>
     );
 };
 

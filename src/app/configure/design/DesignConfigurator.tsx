@@ -54,7 +54,7 @@ const DesignConfigurator = ({ configId, imageUrl, imageDimensions }: Props) => {
         finish: FINISHES.options[0],
     });
 
-    const { mutate: saveConfig } = useMutation({
+    const { mutate: saveConfig, isPending } = useMutation({
         mutationKey: ["save-config"],
         mutationFn: async (args: SaveConfigArgs) => {
             await Promise.all([saveConfiguration(), _saveConfig(args)]);
@@ -413,6 +413,9 @@ const DesignConfigurator = ({ configId, imageUrl, imageDimensions }: Props) => {
                                 )}
                             </p>
                             <Button
+                                isLoading={isPending}
+                                disabled={isPending}
+                                loadingText="Saving"
                                 onClick={() =>
                                     saveConfig({
                                         configId,
