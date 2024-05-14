@@ -29,13 +29,11 @@ const Page = async ({ searchParams }: Props) => {
     const { imageUrl, width, height } = configuration;
 
     return (
-        <MaxWidthWrapper>
-            <DesignConfigurator
-                imageUrl={imageUrl}
-                imageDimensions={{ width, height }}
-                configId={configuration.id}
-            />
-        </MaxWidthWrapper>
+        <DesignConfigurator
+            imageUrl={imageUrl}
+            imageDimensions={{ width, height }}
+            configId={configuration.id}
+        />
     );
 };
 
