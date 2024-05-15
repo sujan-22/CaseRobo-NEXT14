@@ -7,7 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Providers from "@/components/Providers";
 import { constructMetadata } from "@/lib/utils";
 
-const nunito = Nunito({ subsets: ["latin"], weight: "400" });
+const nunito = Nunito({ subsets: ["cyrillic"], weight: "400" });
 
 export const metadata = constructMetadata();
 
